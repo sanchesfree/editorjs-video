@@ -1,45 +1,25 @@
 ![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
-# Simple Image Tool
+# VideoFromList
 
-Provides Image Blocks for the [Editor.js](https://editorjs.io).
+Provides VideoFromList Blocks for the [Editor.js](https://editorjs.io).
 
 Works only with pasted image URLs and requires no server-side uploader.
-
-![](assets/image-uploading.gif)
 
 ## Installation
 
 ### Install via NPM
 
-Get the package
-
-```shell
-npm i --save-dev @editorjs/simple-image
-```
-
 Include module at your application
 
 ```javascript
-const SimpleImage = require('@editorjs/simple-image');
+const VideoFromList = require('@editorjs/videoFromList');
 ```
 
 ### Download to your project's source dir
 
 1. Upload folder `dist` from repository
 2. Add `dist/bundle.js` file to your page.
-
-### Load from CDN
-
-You can load specific version of package from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/@editor/simple-image).
-
-`https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest`
-
-Then require this script on page with Editor.js.
-
-```html
-<script src="..."></script>
-```
 
 ## Usage
 
@@ -51,7 +31,7 @@ var editor = EditorJS({
   
   tools: {
     ...
-    image: SimpleImage,
+    videoFromList: VideoFromList,
   }
   
   ...
@@ -62,25 +42,13 @@ var editor = EditorJS({
 
 This Tool has no config params
 
-## Tool's settings
-
-![](https://capella.pics/c74cdeec-3405-48ac-a960-f784188cf9b4.jpg)
-
-1. Add border
-
-2. Stretch to full-width
-
-3. Add background
-
 ## Output data
 
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
 | url            | `string`  | image's url                     |
 | caption        | `string`  | image's caption                 |
-| withBorder     | `boolean` | add border to image             |
-| withBackground | `boolean` | need to add background          |
-| stretched      | `boolean` | stretch image to screen's width |
+| id     | `string` | id from list             |
 
 
 ```json
@@ -89,9 +57,7 @@ This Tool has no config params
     "data" : {
         "url" : "https://www.tesla.com/tesla_theme/assets/img/_vehicle_redesign/roadster_and_semi/roadster/hero.jpg",
         "caption" : "Roadster // tesla.com",
-        "withBorder" : false,
-        "withBackground" : false,
-        "stretched" : true
+        "id" : "140"
     }
 }
 ```
