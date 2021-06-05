@@ -1,52 +1,81 @@
-.cdx-simple-image {}
+.videos-from-list-tool {
+  --bg-color: #cdd1e0;
+  --front-color: #388ae5;
+  --border-color: #e8e8eb;
 
-.cdx-simple-image .cdx-loader {
-  min-height: 200px;
-}
+  &__select-video {
+    width: 100% !important;
+  }
 
-.cdx-simple-image .cdx-input {
-  margin-top: 10px;
-}
+  &__image {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 10px;
 
-.cdx-simple-image img {
-  max-width: 100%;
-  vertical-align: bottom;
-}
+    &-picture {
+      max-width: 100%;
+      vertical-align: bottom;
+      display: block;
+    }
+  }
 
-.cdx-simple-image__caption[contentEditable=true][data-placeholder]:empty::before {
-  position: absolute;
-  content: attr(data-placeholder);
-  color: #707684;
-  font-weight: normal;
-  opacity: 0;
- }
+  &__caption {
+    &[contentEditable="true"][data-placeholder]::before {
+      position: absolute !important;
+      content: attr(data-placeholder);
+      color: #707684;
+      font-weight: normal;
+      display: none;
+    }
 
-.cdx-simple-image__caption[contentEditable=true][data-placeholder]:empty::before {
-  opacity: 1;
-}
+    &[contentEditable="true"][data-placeholder]:empty {
+      &::before {
+        display: block;
+      }
 
-.cdx-simple-image__caption[contentEditable=true][data-placeholder]:empty:focus::before {
-  opacity: 0;
-}
+      &:focus::before {
+        display: none;
+      }
+    }
+  }
 
+  &__list {
+     margin-top: 10px;
+  }
 
-.cdx-simple-image__picture--with-background {
-  background: #eff2f5;
-  padding: 10px;
-}
+  &--empty {
+    ^&__image {
+      display: none;
+    }
+  }
 
-.cdx-simple-image__picture--with-background img {
-  display: block;
-  max-width: 60%;
-  margin: 0 auto;
-}
+  &--empty,
+  &--loading {
+    ^&__caption {
+      display: none;
+    }
+  }
 
-.cdx-simple-image__picture--with-border {
-  border: 1px solid #e8e8eb;
-  padding: 1px;
-}
+  &--filled {
+    /*.cdx-button {*/
+    /*  display: none;*/
+    /*}*/
+  }
 
-.cdx-simple-image__picture--stretched img {
-  max-width: none;
-  width: 100%;
+  &--loading {
+    ^&__image {
+      min-height: 200px;
+      display: flex;
+      border: 1px solid var(--border-color);
+      background-color: #fff;
+
+      &-picture {
+        display: none;
+      }
+    }
+
+    .cdx-button {
+      display: none;
+    }
+  }
 }

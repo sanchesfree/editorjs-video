@@ -1,5 +1,6 @@
+const path = require('path');
+
 module.exports = {
-  entry: './src/index.js',
   module: {
     rules: [
       {
@@ -11,23 +12,37 @@ module.exports = {
             query: {
               presets: [ '@babel/preset-env' ],
             },
-          },
+          }
         ]
       },
       {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('postcss-nested-ancestors'),
+                require('postcss-nested')
+              ]
+            }
+          }
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader?removeSVGTagAttrs=false'
       }
     ]
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, '/dist'),
     publicPath: '/',
     filename: 'bundle.js',
-    library: 'SimpleImage',
-    libraryTarget: 'umd'
+    library: 'VideoFromListTool',
+    libraryTarget: 'umd',
+    libraryExport: 'default'
   }
 };

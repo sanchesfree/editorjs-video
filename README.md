@@ -1,10 +1,8 @@
 ![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
-# VideoFromList
+# VideoFromListTool
 
-Provides VideoFromList Blocks for the [Editor.js](https://editorjs.io).
-
-Works only with pasted image URLs and requires no server-side uploader.
+Provides VideoFromListTool Blocks for the [Editor.js](https://editorjs.io).
 
 ## Installation
 
@@ -13,7 +11,7 @@ Works only with pasted image URLs and requires no server-side uploader.
 Include module at your application
 
 ```javascript
-const VideoFromList = require('@editorjs/videoFromList');
+const VideoFromListTool = require('@editorjs/videoFromList');
 ```
 
 ### Download to your project's source dir
@@ -31,7 +29,7 @@ var editor = EditorJS({
   
   tools: {
     ...
-    videoFromList: VideoFromList,
+    videoFromList: VideoFromListTool,
   }
   
   ...
